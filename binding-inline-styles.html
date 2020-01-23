@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<div id="app">
+    
+    <!-- dynamic colours / font sizes:-) -->
+    <!-- note in the object set to the style attribute it's javascript style properties not css (hence write fontSize rather than font-size) -->
+        <div :style="{color: 'red', fontSize: myFontSize + 'px'}">{{ message }}</div>
+    
+        <!-- pass an object from the app section to style -->
+        <div :style="styleObject">message is {{ message }}</div>
+
+        <!-- in the following, an array of style object passed to style property, the second overrides the first -->
+        <div :style="[styleObject, styleObject2, styleObject3]">{{ message }}</div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello from Durham',
+            myFontSize: 30, 
+            styleObject: { 
+                color: 'blue',
+                fontSize: '30px',
+            },
+            styleObject2: { 
+                color: 'yellow',
+                fontSize: '100px',
+            },
+            styleObject3: { 
+                background: 'red',
+            }            
+        }
+    })
+</script>

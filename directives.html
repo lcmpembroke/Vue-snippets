@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<div id="app">
+
+        <a v-bind:href="url">{{url}}</a>
+
+        <h1>Number: {{number}}</h1>
+        <h1 v-on:click="number++"> increase CLICK using v-on:click</h1>
+        <h1 @click="number--">decrease CLICK using the shorthand for v-on which is @click notice no colon!</h1>
+
+        <!-- modifiers for directives -->
+        <!-- don't want the page to reload on clocking the button -->
+        <form action="" @submit.prevent="number++">
+            <button type="submit">Submit to increase the above number</button>
+        </form>
+        
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            url: "https://www.ligonier.org/",
+            message: 'Hello from Durham',
+            number: 10,
+        }
+    })
+</script>

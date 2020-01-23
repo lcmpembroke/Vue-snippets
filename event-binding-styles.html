@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<div id="app">
+    
+        <button @click="increaseFont">Increase button</button>
+        <button @click="decreaseFont">Decrease button</button>        
+
+        <div :style="{color: 'red', fontSize: fontSize + 'px'}">{{ message }} in fontSize {{ fontSize }}</div>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello from Durham',
+            fontSize: 12, 
+        },
+
+        methods: {
+
+            increaseFont() {
+                this.fontSize++;
+            },
+
+            decreaseFont() {
+                this.fontSize--;
+            }
+
+        }
+    })
+</script>
+
+<!-- old way of function:
+increaseFont: function() {
+    console.log("this is another way of defining a function inside the Vue object definition");
+} -->

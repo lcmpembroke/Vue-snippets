@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<div id="app">
+
+    <!-- loop through data in list form -->
+    <ul>
+        <li v-for="post in posts" :key="post.id">{{post.title}}</li>
+    </ul>
+
+    <!--  loop through data in table form -->    
+    <table>
+        <tr v-for="post in posts" :key="post.id"><td>{{post.title}}</td></tr>        
+    </table>
+    
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            posts: [
+                {id: 1, title: 'Post title 1', body: 'testing the is content for the post1'},
+                {id: 2, title: 'Post title 2', body: 'testing the is content for the post2'},
+                {id: 3, title: 'Post title 3', body: 'testing the is content for the post3'},
+                {id: 4, title: 'Post title 4', body: 'testing the is content for the post4'},
+            ],
+        }
+    })
+</script>

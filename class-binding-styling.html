@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        .active {
+            color: green;
+        }
+
+        .notActive {
+            color: red;
+        }
+    </style>
+</head>
+
+<div id="app">
+    <!-- the :class bit means.......
+                put the active class on the h1 element if isActive is true
+                include the notActive class if the isActive property is false
+    Note that if isActive is false, then the active class won't be applied (and it would've been black color as static class not defined
+        however, the second bit after the comma means notActive class is applied if the isActive is set to false
+
+        Notice the single quotes, i think both work the same------not sure which is best practice.
+    -->
+        <h1 class="static" :class="{'active': isActive, 'notActive' : !isActive}">{{ name }}</h1>
+        <h1 class="static" :class="{active: isActive, notActive : !isActive}">{{ name }}</h1>
+        <h1 class="static" :class="{active: isActive, notActive : hasError}">{{ name }}</h1>      
+        
+        <!-- a lot simpler to read, does same thing -->
+        <h1 :class="[isActive ? 'active' : 'notActive']">name using classes with array to use whole expression in JS with ternary operator {{ name }}</h1>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            hasError: true,
+            name: 'George'
+        }
+    })
+</script>

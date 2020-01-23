@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!-- got to https://www.bootstrapcdn.com/ 
+Under the CSS section, click dropdown arrow and copy the HTML part (remove integrity= and crossorigin= parts), and add as link in the <head>
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="app">
+
+            <form action="">
+
+                <div class="col-sm-6">
+                    <input v-model="options" type="text" class="form-control">
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>Radio buttons</legend>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input v-model="options" type="checkbox" class="form-check-input" name="optionRadios" value="option-1" checked>
+                            <br>Option one is this and that be sure to include why it is great
+                        </label>
+                        <label class="form-check-label">
+                            <input v-model="options" type="checkbox" class="form-check-input" name="optionRadios" value="option-2">
+                            Option two can be different and if it is selected it will deselect option 1
+                        </label>
+                        <label class="form-check-label">
+                            <input v-model="options" type="checkbox" class="form-check-input" name="optionRadios" value="option-3">
+                            Option three is disabled
+                        </label>
+                    </div>
+
+                </fieldset>
+                <p>You selected {{options.join(', ')}}</p>
+
+            </form>
+
+            <h2>{{message}}</h2>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                options: [],
+                message: ''
+            }
+        })
+    </script>
+
+</body>
+
+</html>

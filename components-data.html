@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<div id="app">
+
+    <!-- now how we can display data from the outside to the inside of component - we bind it! Use the props property and give it an array syntax
+    and give it name of whatever data we are taking in from the component's attribute name, here it is called data-->
+
+    <posts v-bind:data="34"></posts>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    
+    // register a component by accessing Vue.component(), then give it some type of element name and the type of meta data wanted in the component
+    // the name becomes the element tag name in the app div above
+    // below template created in the back ticks...
+    Vue.component('posts', {
+
+        props: ['data'],
+
+        template: `  
+            <h1 @click="display">HELLO...message is {{message}} and data from compnenet is: {{data}}</h1>
+        `,
+
+        data() {
+            return {
+                message: 'Hello from Durham...'
+            }
+        },
+
+        methods: {
+            
+            display(){
+                console.log('method display() called from within Vue.component.methods');
+            }
+        },
+    });
+
+
+    // instance of vue model
+    new Vue({
+        el: '#app',
+
+    })
+</script>

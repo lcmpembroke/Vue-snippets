@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<div id="app">
+
+    <!-- One way databinding - app data affects what is in the html
+            Two way dta binding means that app data can be affected by html (see twoway-databding.html example) -->
+
+    <!-- bind any attribute of html with your app data using v-bind -->
+        <a v-bind:href="url">{{url}}</a>
+        <h1 v-bind:data="dynamicId">look at element inspector with v-bind....dynamicId is {{dynamicId}} - i.e. app data used as html element attribute</h1>
+        <h1 data="dynamicId">look at element inspector without v-bind....dynamicId is {{dynamicId}}- - i.e. app data NOT in the html attribute</h1>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            dynamicId: 30,
+            url: 'https://edwindiaz.com',
+
+        }
+    })
+</script>

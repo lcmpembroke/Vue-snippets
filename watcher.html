@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<div id="app">
+    <h1>Jordan {{isActive === 'active' ? 'is active' : 'is not active'}}</h1>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+    // Below is the vue model instance
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            isActive: 'not active',
+        },
+        watch: {
+            isActive: function (newValue) {
+                console.log('sending an email - ' + newValue)
+            }
+        },
+    })
+</script>

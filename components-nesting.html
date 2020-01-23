@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<div id="app">
+
+
+    <posts></posts>
+
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    
+
+    Vue.component('posts', {
+
+        // note you need a root element for this to work here using div
+        template: `  
+
+            <div>
+                    <ul>
+                        <post v-for="post in posts" :key="post.id" >id is: {{post.id}} and title is  {{post.title}}</post>
+                    </ul>
+                
+            </div>
+        `,
+
+        data() {
+            return {
+                posts: [
+                    {id:1, title: 'Post 1 title'},
+                    {id:2, title: 'Post 2 title'},
+                    {id:3, title: 'Post 3 title'},                    
+                    {id:4, title: 'Post 4 title'},                    
+                    {id:5, title: 'Post 5 title'},                      
+                    
+                    ]
+            }
+        },
+
+        methods: {
+            
+            display(){
+                console.log('method display() called from within Vue.component.methods');
+            }
+        },
+    });
+
+    Vue.component('post',{
+
+        template: '<li><slot></slot></li>'
+
+    });
+
+
+    // instance of vue model
+    new Vue({
+        el: '#app',
+
+    })
+</script>
